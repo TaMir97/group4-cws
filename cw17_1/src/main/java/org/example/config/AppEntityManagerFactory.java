@@ -1,5 +1,6 @@
 package org.example.config;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -15,7 +16,7 @@ public class AppEntityManagerFactory {
     private AppEntityManagerFactory() {
     }
 
-    public static EntityManagerFactory getEntityManagerFactory() {
-        return  entityManagerFactory;
+    public static EntityManager getEntityManagerFactory() {
+        return  entityManagerFactory.createEntityManager();
     }
 }

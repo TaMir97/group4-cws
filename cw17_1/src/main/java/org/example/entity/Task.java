@@ -1,9 +1,8 @@
 package org.example.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.sun.istack.NotNull;
+import com.sun.istack.Nullable;
+import lombok.*;
 import org.example.entity.enumeration.Mode;
 import org.example.entity.enumeration.TaskPriority;
 
@@ -25,7 +24,9 @@ public class Task {
     private LocalDate dueDate;
     private TaskPriority taskPriority;
     private Mode mode;
+
     @ManyToOne
+//    @Column(nullable = false)
     private User user;
 
 }

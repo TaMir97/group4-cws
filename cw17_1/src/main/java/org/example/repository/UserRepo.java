@@ -2,15 +2,15 @@ package org.example.repository;
 
 import org.example.config.AppEntityManagerFactory;
 import org.example.entity.Task;
+import org.example.entity.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
-public class TaskRepo {
+public class UserRepo {
     private final EntityManager entityManager = AppEntityManagerFactory.getEntityManagerFactory();
 
-    public void save(Task task){
-        entityManager.persist(task);
+    public void save(User user){
+        entityManager.persist(user);
     }
 
 
@@ -22,8 +22,6 @@ public class TaskRepo {
         if (entityManager.getTransaction().isActive())
             entityManager.getTransaction().commit();
     }
-
-
 
     public void rollBack() {
         if (entityManager.getTransaction().isActive())
