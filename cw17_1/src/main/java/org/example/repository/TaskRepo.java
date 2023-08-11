@@ -5,7 +5,6 @@ import org.example.entity.Task;
 import org.example.exception.TaskNotFoundException;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 
 public class TaskRepo {
     private final EntityManager entityManager = AppEntityManagerFactory.getEntityManagerFactory();
