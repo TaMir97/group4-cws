@@ -3,6 +3,8 @@ package org.example.service;
 import org.example.entity.Task;
 import org.example.repository.TaskRepo;
 
+import java.util.List;
+
 public class TaskService {
 
     private final TaskRepo repository;
@@ -55,6 +57,10 @@ public class TaskService {
             repository.rollBack();
         }
 
+    }
+
+    public List<Task> loadAll(){
+        return repository.loadAll();
     }
 
     public boolean contains(Task task) {
