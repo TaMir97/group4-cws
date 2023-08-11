@@ -2,8 +2,8 @@ package org.example;
 
 import org.example.entity.Task;
 import org.example.entity.User;
-import org.example.entity.enumeration.Mode;
-import org.example.entity.enumeration.TaskPriority;
+import org.example.entity.enumaration.Mode;
+import org.example.entity.enumaration.TaskPriority;
 import org.example.repository.TaskRepo;
 import org.example.service.TaskService;
 import org.example.service.UserService;
