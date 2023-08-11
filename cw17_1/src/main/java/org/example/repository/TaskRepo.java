@@ -5,6 +5,7 @@ import org.example.entity.Task;
 import org.example.exception.TaskNotFoundException;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class TaskRepo {
     private final EntityManager entityManager;
@@ -38,6 +39,10 @@ public class TaskRepo {
             return task;
         else
             throw new TaskNotFoundException("The task doesn't exist.");
+    }
+
+    public List<Task> loadAll(){
+        return  entityManager.createQuery("select t from Task t", Task.class).getResultList();
     }
 
     public boolean contains(Task task) {
