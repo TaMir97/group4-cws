@@ -14,7 +14,7 @@ public class UserRepo {
         this.entityManager = entityManager;
     }
 
-    public void save(User user){
+    public void save(User user) {
         entityManager.persist(user);
     }
 
@@ -41,12 +41,16 @@ public class UserRepo {
             throw new UserNotFoundException("The user doesn't exist.");
     }
 
-    public User readByUsernamePassword(String username, String password){
+    public User readByUsernamePassword(String username, String password) {
         String jpql = "select u from User u where u.username = :username and u.password = :password";
         Query query = entityManager.createQuery(jpql);
         query.setParameter("username", username);
         query.setParameter("password", password);
-        return  (User) query.getSingleResult();
+        User user = (User) query.getSingleResult();
+        if (contains(user))
+            return user;
+        else
+            throw new UserNotFoundException("The user doesn't exist.");
     }
 
     public boolean contains(User user) {
@@ -54,11 +58,12 @@ public class UserRepo {
     }
 
 
-    public void beginTransaction(){
+    public void beginTransaction() {
         if (!entityManager.getTransaction().isActive())
             entityManager.getTransaction().begin();
     }
-    public void commitTransaction(){
+
+    public void commitTransaction() {
         if (entityManager.getTransaction().isActive())
             entityManager.getTransaction().commit();
     }
