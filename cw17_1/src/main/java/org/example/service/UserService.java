@@ -13,14 +13,14 @@ public class UserService {
         this.repository = repository;
     }
 
-    public void save(User user){
+    public void save(User user) {
         try {
             repository.beginTransaction();
             repository.save(user);
 
             repository.commitTransaction();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             repository.rollBack();
         }
 
@@ -40,6 +40,15 @@ public class UserService {
     public User readById(Long id) {
         try {
             return repository.readById(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public User readByUsernamePassword(String username, String password) {
+        try {
+            return repository.readByUsernamePassword(username, password);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
