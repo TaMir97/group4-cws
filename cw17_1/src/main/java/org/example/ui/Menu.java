@@ -19,12 +19,12 @@ public class Menu {
     static TaskService taskService = AppEntityManagerFactory.getTaskService();
 
     public static void run() {
-        System.out.println("Enter your choice: ");
-        Printer.printItem(Constant.ENTRANCE_MENU, "Entrance Menu");
-        String initialInput = input.nextLine();
         boolean initialMenuLoop = true;
 
         while (initialMenuLoop) {
+            System.out.println("Enter your choice: ");
+            Printer.printItem(Constant.ENTRANCE_MENU, "Entrance Menu");
+            String initialInput = input.nextLine();
             switch (initialInput) {
                 case "1" -> signIn();
                 case "2" -> singUp();
@@ -145,9 +145,9 @@ public class Menu {
 
     private static void singUp(){
         User user = new User();
-        System.out.println("Enter your username");
+        System.out.println("Enter your username1");
         user.setUsername(input.nextLine());
-        System.out.println("Enter your password");
+        System.out.println("Enter your password1");
         user.setPassword(input.nextLine());
         userService.save(user);
     }
