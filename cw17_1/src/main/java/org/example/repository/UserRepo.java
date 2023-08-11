@@ -1,13 +1,17 @@
 package org.example.repository;
 
-import org.example.config.AppEntityManagerFactory;
+import org.example.util.AppEntityManagerFactory;
 import org.example.entity.User;
 import org.example.exception.UserNotFoundException;
 
 import javax.persistence.EntityManager;
 
 public class UserRepo {
-    private final EntityManager entityManager = AppEntityManagerFactory.getEntityManagerFactory();
+    private final EntityManager entityManager;
+
+    public UserRepo(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public void save(User user){
         entityManager.persist(user);

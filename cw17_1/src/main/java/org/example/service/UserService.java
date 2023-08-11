@@ -7,8 +7,11 @@ import org.example.repository.UserRepo;
 
 public class UserService {
 
-    private final UserRepo repository = new UserRepo();
+    private final UserRepo repository;
 
+    public UserService(UserRepo repository) {
+        this.repository = repository;
+    }
 
     public void save(User user){
         try {
