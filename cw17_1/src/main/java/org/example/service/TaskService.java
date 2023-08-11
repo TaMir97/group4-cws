@@ -63,6 +63,13 @@ public class TaskService {
         return repository.loadAll();
     }
 
+    public List<Task> sortByDueDateAscending(){
+        return repository.sortByDueDateAscending();
+    }
+    public List<Task> sortByDueDateDescending(){
+        return repository.sortByDueDateDescending();
+    }
+
     public boolean contains(Task task) {
         return repository.contains(task);
 
