@@ -5,6 +5,8 @@ import org.example.entity.Task;
 import org.example.exception.TaskNotFoundException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class TaskRepo {
@@ -43,6 +45,17 @@ public class TaskRepo {
 
     public List<Task> loadAll(){
         return  entityManager.createQuery("select t from Task t", Task.class).getResultList();
+    }
+
+    public List<Task> sortByDueDateAscending(){
+        String jpql = "select t from Task t order by t.dueDate asc ";
+        TypedQuery<Task> query = entityManager.createQuery(jpql,Task.class);
+        return query.getResultList();
+    }
+    public List<Task> sortByDueDateDescending(){
+        String jpql = "select t from Task t order by t.dueDate desc ";
+        TypedQuery<Task> query = entityManager.createQuery(jpql,Task.class);
+        return query.getResultList();
     }
 
     public boolean contains(Task task) {
