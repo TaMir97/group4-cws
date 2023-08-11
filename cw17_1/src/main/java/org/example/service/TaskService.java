@@ -1,14 +1,15 @@
 package org.example.service;
 
-import org.example.config.AppEntityManagerFactory;
 import org.example.entity.Task;
 import org.example.repository.TaskRepo;
 
-import javax.persistence.EntityManager;
-
 public class TaskService {
 
-    private final TaskRepo repository = new TaskRepo();
+    private final TaskRepo repository;
+
+    public TaskService(TaskRepo repository) {
+        this.repository = repository;
+    }
 
 
     public void save(Task task) {

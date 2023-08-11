@@ -1,13 +1,17 @@
 package org.example.repository;
 
-import org.example.config.AppEntityManagerFactory;
+import org.example.util.AppEntityManagerFactory;
 import org.example.entity.Task;
 import org.example.exception.TaskNotFoundException;
 
 import javax.persistence.EntityManager;
 
 public class TaskRepo {
-    private final EntityManager entityManager = AppEntityManagerFactory.getEntityManagerFactory();
+    private final EntityManager entityManager;
+
+    public TaskRepo(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public void save(Task task) {
         entityManager.persist(task);
