@@ -5,6 +5,7 @@ import org.example.entity.User;
 import org.example.exception.UserNotFoundException;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 public class UserRepo {
     private final EntityManager entityManager;
@@ -38,6 +39,14 @@ public class UserRepo {
             return user;
         else
             throw new UserNotFoundException("The user doesn't exist.");
+    }
+
+    public User readByUsernamePassword(String username, String password){
+        String jpql = "select u from User u where u.username = :username and u.password = :password";
+        Query query = entityManager.createQuery(jpql);
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        return  (User) query.getSingleResult();
     }
 
     public boolean contains(User user) {
