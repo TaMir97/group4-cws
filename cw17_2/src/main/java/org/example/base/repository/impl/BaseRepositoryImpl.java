@@ -47,7 +47,7 @@ public abstract class BaseRepositoryImpl
     }
 
     @Override
-    public Collection showAll() {
+    public Collection<T> showAll() {
         return entityManger.createQuery("FROM " + getEntityClass().getSimpleName(), getEntityClass()).getResultList();
     }
 

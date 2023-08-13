@@ -16,12 +16,13 @@ public class Address extends BaseEntity<Long> {
     private Integer postalAddress;
     private String city;
 
-    @ManyToOne
-    private Empolyee employee;
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+    @OneToOne(cascade = CascadeType.ALL)
     private PhoneNumber phoneNumbers;
 
-    public Address(Long id, Integer postalCode, Integer postalAddress, String city, Empolyee employee, PhoneNumber phoneNumbers) {
+    public Address(Long id, Integer postalCode, Integer postalAddress, String city, Employee employee, PhoneNumber phoneNumbers) {
         super(id);
         this.postalCode = postalCode;
         this.postalAddress = postalAddress;
@@ -30,7 +31,7 @@ public class Address extends BaseEntity<Long> {
         this.phoneNumbers = phoneNumbers;
     }
 
-    public Address(Integer postalCode, Integer postalAddress, String city, Empolyee employee, PhoneNumber phoneNumbers) {
+    public Address(Integer postalCode, Integer postalAddress, String city, Employee employee, PhoneNumber phoneNumbers) {
         this.postalCode = postalCode;
         this.postalAddress = postalAddress;
         this.city = city;
@@ -66,11 +67,11 @@ public class Address extends BaseEntity<Long> {
         this.city = city;
     }
 
-    public Empolyee getEmployee() {
+    public Employee getEmployee() {
         return employee;
     }
 
-    public void setEmployee(Empolyee employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 

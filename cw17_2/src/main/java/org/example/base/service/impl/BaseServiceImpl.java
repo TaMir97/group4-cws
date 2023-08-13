@@ -3,7 +3,6 @@ package org.example.base.service.impl;
 import org.example.base.domain.BaseEntity;
 import org.example.base.repository.BaseRepository;
 import org.example.base.service.BaseService;
-import org.example.repository.EmpolyeeRepository;
 
 import java.io.Serializable;
 import java.util.ArrayList;
