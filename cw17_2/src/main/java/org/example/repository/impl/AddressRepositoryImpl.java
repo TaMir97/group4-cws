@@ -41,4 +41,23 @@ public class AddressRepositoryImpl extends BaseRepositoryImpl<Address,Long> impl
         List<Address> addressList = query.getResultList();
         return addressList.stream().map(Address::getEmployee).toList();
     }
+
+//    public List<Employee> findByTelNumberCriteria(int telNumber){
+//        CriteriaBuilder criteriaBuilder = entityManger.getCriteriaBuilder();
+//        CriteriaQuery<Address> criteriaQuery = criteriaBuilder.createQuery(Address.class);
+//        Root<Address> root = criteriaQuery.from(Address.class);
+//        criteriaQuery.select(root).where(criteriaBuilder.equal(root.<Integer>get("postalCode"), postalCode));
+//        Query query = entityManger.createQuery(criteriaQuery);
+//        List<Address> addressList = query.getResultList();
+//        return addressList.stream().map(Address::getEmployee).toList();
+//    }
+
+//    @Override
+//    public List<Employee> findByTelNumberCriteria(int telNumber) {
+//        String findEmployeeByPostalCod = "from Task t join projectUserMap m where m = :user";
+//        Query query = entityManger.createQuery(findEmployeeByPostalCod);
+//        query.setParameter("P",postalCode);
+//        List<Address> addressList = query.getResultList();
+//        return addressList.stream().map(Address::getEmployee).toList();
+//    }
 }

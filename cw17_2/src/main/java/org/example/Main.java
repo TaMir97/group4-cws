@@ -64,6 +64,8 @@ public class Main {
 
         System.out.println(addressService.findByPostalCodeCriteria(571));
 
+        System.out.println(employeeService.findEmployeesByPhoneNumber(162801));
+
 
     }
 }

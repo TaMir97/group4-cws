@@ -5,6 +5,8 @@ import org.example.entity.Employee;
 import org.example.repository.EmployeeRepository;
 import org.example.service.EmployeeService;
 
+import java.util.List;
+
 public class EmployeeServiceImpl
         extends BaseServiceImpl<Employee,Long, EmployeeRepository>
         implements EmployeeService {
@@ -12,5 +14,10 @@ public class EmployeeServiceImpl
 
     public EmployeeServiceImpl(EmployeeRepository repository) {
         super(repository);
+    }
+
+    @Override
+    public List<Employee> findEmployeesByPhoneNumber(Integer telNumber) {
+        return repository.findEmployeesByPhoneNumber(telNumber);
     }
 }
