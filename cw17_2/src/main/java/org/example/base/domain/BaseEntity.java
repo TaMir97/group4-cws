@@ -3,7 +3,7 @@ package org.example.base.domain;
 
 
 
-import lombok.Data;
+
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
