@@ -20,5 +20,7 @@ public class AppEntityManagerFactory {
         ENTITY_MANAGER = ENTITY_MANAGER_FACTORY.createEntityManager();
     }
 
-
+    public static EntityManager getEntityManager() {
+        return ENTITY_MANAGER;
+    }
 }

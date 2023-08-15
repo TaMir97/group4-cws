@@ -1,18 +1,18 @@
 package org.example.entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.example.base.domain.BaseEntity;
+
 import javax.persistence.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
+@Data
+public class Admin extends BaseEntity<Long> {
 
-
-
-@AttributeOverrides({
-        @AttributeOverride(name = "password", column = @Column(name = "password")),
-        @AttributeOverride(name = "username", column = @Column(name = "username"))
-})
-
-public class Admin extends Person{
-
+    @OneToOne(fetch = FetchType.LAZY)
+    private Person person;
     private String AdminLevel;
 
 

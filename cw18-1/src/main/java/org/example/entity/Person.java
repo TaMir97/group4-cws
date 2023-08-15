@@ -11,16 +11,18 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person extends BaseEntity<Long> {
 
 
-    @Column(name = "username")
+
     private String username;
     private String password;
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Admin admin;
 
 
 
