@@ -1,5 +1,6 @@
 package org.example.base.repository.impl;
 
+
 import org.example.base.domain.BaseEntity;
 import org.example.base.repository.BaseRepository;
 
@@ -10,11 +11,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-
 public abstract class BaseRepositoryImpl
         <T extends BaseEntity<ID>,
                 ID extends Serializable>
-                   implements BaseRepository<T,ID> {
+        implements BaseRepository<T,ID> {
 
     protected EntityManager entityManger;
 
@@ -38,7 +38,7 @@ public abstract class BaseRepositoryImpl
     }
 
     @Override
-    public Optional <T> findById(ID id) {
+    public Optional<T> findById(ID id) {
         return Optional.ofNullable(( entityManger.find(getEntityClass(),id)));
     }
 

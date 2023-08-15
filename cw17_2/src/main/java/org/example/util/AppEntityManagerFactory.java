@@ -19,8 +19,8 @@ public class AppEntityManagerFactory {
     private static final EntityManager ENTITY_MANAGER;
     private static final AddressRepository ADDRESS_REPOSITORY;
     private static final AddressService ADDRESS_SERVICE;
-    private static final EmpolyeeRepository EMPOLYEE_REPOSITORY;
-    private static final EmpolyeeService EMPOLYEE_SERVICE;
+    private static final EmployeeRepository EMPOLYEE_REPOSITORY;
+    private static final EmployeeService EMPOLYEE_SERVICE;
     private static final PhoneNumberRepository PHONE_NUMBER_REPOSITORY;
     private static final PhoneNumberService PHONE_NUMBER_SERVICE;
 
