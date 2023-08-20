@@ -13,7 +13,7 @@ import java.io.Serializable;
 @MappedSuperclass
 public class BaseEntity<ID extends Serializable> implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected ID id;
 
     public BaseEntity(ID id) {

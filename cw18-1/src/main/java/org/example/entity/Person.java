@@ -24,7 +24,7 @@ public class Person extends BaseEntity<Long> {
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Admin admin;
 
-
-
+    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Patient patient;
 
 }
